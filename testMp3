@@ -1,0 +1,221 @@
+package music;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestMp3 {
+
+	int refValid, refValidLowest, refInvalid, ratingValid, ratingInvalidLower, ratingInvalidUpper, ratingValidMiddle,
+			ratingValidLower, ratingValidUpper, songLenghtValidLower, songLenghtValidMiddle, songLenghtValidUpper,
+			songInvalidLower, songInvalidUpper;
+	String songNameValid, songNameInvalid, artistNameValid, artistNameInvalid;
+
+	@Before
+	public void setUp() throws Exception {
+
+		refValidLowest = 0;
+		refValid = 1;
+		refInvalid = -1;
+		artistNameValid = "artistValid";
+		songNameValid = "songValid";
+		ratingValidLower = 1;
+		ratingValidMiddle = 3;
+		ratingValidUpper = 5;
+		ratingInvalidLower = 0;
+		songLenghtValidLower = 1;
+		songLenghtValidMiddle = 1250;
+		songLenghtValidUpper = 2500;
+		songInvalidLower = 0;
+		songInvalidUpper = 2501;
+
+	}
+
+	/**
+	 * test for default constructor
+	 */
+
+	@Test
+	public void testMp3DefaultNotNull() {
+		Mp3 mp3 = new Mp3();
+		assertNotNull(mp3);
+
+	}
+
+	@Test
+	public void testMp3ConstructorWithParametersForNotNull() {
+		Mp3 mp3 = new Mp3(refValid, artistNameValid, songNameValid, ratingValidLower , songLenghtValidUpper);
+		assertNotNull(mp3);
+
+	}
+
+	@Test
+	public void testMp3ConstructorParameters() {
+		Mp3 mp3 = new Mp3(refValid, artistNameValid, songNameValid, ratingValidLower , songLenghtValidUpper);
+
+		assertEquals(refValid, mp3.getRef());
+		assertEquals(artistNameValid, mp3.getArtist());
+		assertEquals(songNameValid, mp3.getSongName());
+		assertEquals(ratingValidLower , mp3.getRating());
+		assertEquals(songLenghtValidUpper, mp3.getSongLenght());
+		
+
+	}
+
+	/**
+	 * normal value passed into test for ref
+	 */
+
+	@Test
+	public void testGetValidRef() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRef(refValid);
+		assertEquals(refValid, mp3.getRef());
+	}
+
+	/**
+	 * lowest value acceptable of 0
+	 */
+
+	@Test
+	public void testGetValidLowestRef() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRef(refValidLowest);
+		assertEquals(refValidLowest, mp3.getRef());
+	}
+
+	/**
+	 * test case to check exception upon invalid value
+	 */
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetInvalidHighestRef() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRef(refInvalid);
+	}
+
+	/**
+	 * test for not null value in set get/set methods for ref
+	 */
+
+	@Test
+	public void testGetRefNotNull() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRef(refValid);
+		assertNotNull(mp3.getRef());
+	}
+
+	/**
+	 * test get/set methods for artist
+	 */
+
+	@Test
+	public void testGetArtistNotNull() {
+		Mp3 mp3 = new Mp3();
+		mp3.setArtist(artistNameValid);
+		assertNotNull(mp3.getArtist());
+	}
+
+	/**
+	 * test for artist valid content being passed into get/set method
+	 */
+
+	@Test
+	public void testGetArtistValid() {
+		Mp3 mp3 = new Mp3();
+		mp3.setArtist(artistNameValid);
+		assertEquals(artistNameValid, mp3.getArtist());
+	}
+
+	@Test
+	public void testGetSongNameValid() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongName(songNameValid);
+		assertEquals(songNameValid, mp3.getSongName());
+	}
+
+	@Test
+	public void testGetSongNameNotNull() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongName(songNameValid);
+		assertNotNull(mp3.getSongName());
+	}
+
+	@Test
+	public void testGetRatingValidUpper() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRating(ratingValidUpper);
+		assertEquals(ratingValidUpper, mp3.getRating());
+	}
+
+	@Test
+	public void testGetRatingValidMiddle() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRating(ratingValidMiddle);
+		assertEquals(ratingValidMiddle, mp3.getRating());
+	}
+
+	@Test
+	public void testGetRatingValidLower() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRating(ratingValidLower);
+		assertEquals(ratingValidLower, mp3.getRating());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetRatingInvalidLower() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRating(ratingInvalidLower);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetRatingInvalidUpper() {
+		Mp3 mp3 = new Mp3();
+		mp3.setRating(ratingInvalidUpper);
+	}
+
+	@Test
+	public void testGetSongLenghtValidLower() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongLenght(songLenghtValidLower);
+		assertEquals(songLenghtValidLower, mp3.getSongLenght());
+	}
+
+	@Test
+	public void testGetSongLenghtValidUpper() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongLenght(songLenghtValidUpper);
+		assertEquals(songLenghtValidUpper, mp3.getSongLenght());
+	}
+
+	@Test
+	public void testGetSongLenghtValidMiddle() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongLenght(songLenghtValidMiddle);
+		assertEquals(songLenghtValidMiddle, mp3.getSongLenght());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetSongLenghtInvalidLower() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongLenght(songInvalidLower);
+
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetSongLenghtInvalidUpper() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongLenght(songInvalidUpper);
+
+	}
+
+	@Test
+	public void testGetSongLenghtNotNull() {
+		Mp3 mp3 = new Mp3();
+		mp3.setSongLenght(10);
+		assertNotNull(mp3.getSongLenght());
+
+	}
+
+}
