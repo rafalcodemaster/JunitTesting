@@ -1,0 +1,185 @@
+package music;
+
+/**
+ * 
+ * @author Eryk
+ *
+ */
+
+public class Mp3 {
+
+	/**
+	 * value for ref
+	 */
+	private int ref;
+	/**
+	 * value for artist
+	 */
+	private String artist;
+	/**
+	 * value for songName
+	 */
+	private String songName;
+	/**
+	 * value for rating
+	 */
+	private int rating;
+
+	/**
+	 * value for lower rating
+	 */
+
+	public final static int LOWER_RATING = 1;
+
+	/**
+	 * value for songLenght
+	 */
+
+	private int songLenght;
+
+	/**
+	 * default constructor
+	 */
+
+	public Mp3() {
+
+	}
+
+	/**
+	 * consturctor with arguments and validations for them
+	 * 
+	 * @param ref
+	 * @param artist
+	 * @param songName
+	 * @param rating
+	 * @param songLenght
+	 */
+
+	public Mp3(int ref, String artist, String songName, int rating, int songLenght) {
+
+		this.setRef(ref);
+		this.artist = artist;
+		this.songName = songName;
+		this.setRating(rating);
+		this.setSongLenght(songLenght);
+	}
+
+	/**
+	 * getter method for ref
+	 * 
+	 * @return
+	 */
+
+	public int getRef() {
+		return ref;
+	}
+
+	/**
+	 * If less than zero then throw exception
+	 * 
+	 * @param ref
+	 */
+	public void setRef(int ref) throws IllegalArgumentException {
+
+		if (ref >= 0) {
+			this.ref = ref;
+		} else {
+			throw new IllegalArgumentException("Ref less than 0");
+		}
+
+	}
+
+	/**
+	 * getter method for artist
+	 * 
+	 * @return
+	 */
+
+	public String getArtist() {
+		return artist;
+	}
+
+	/**
+	 * setter method for setter
+	 * 
+	 * @param artist
+	 */
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	/**
+	 * getter method for String
+	 * 
+	 * @return
+	 */
+
+	public String getSongName() {
+		return songName;
+	}
+
+	/**
+	 * setter method for song
+	 * 
+	 * @param songName
+	 */
+
+	public void setSongName(String songName) {
+		this.songName = songName;
+	}
+
+	/**
+	 * getter method for rating
+	 * 
+	 * @return
+	 */
+
+	public int getRating() {
+		return rating;
+	}
+
+	/**
+	 * getter method for songLenght
+	 * 
+	 * @return
+	 */
+
+	public int getSongLenght() {
+		return songLenght;
+	}
+
+	/**
+	 * method to set the songLenght and validate value between 1-2500 if
+	 * validation fails error message.
+	 * 
+	 * @param songLenght
+	 * @throws IllegalArgumentException
+	 */
+
+	public void setSongLenght(int songLenght) throws IllegalArgumentException {
+
+		if ((songLenght > 0) && (songLenght < 2501)) {
+			this.songLenght = songLenght;
+		} else {
+			throw new IllegalArgumentException("Value out of range must be between 1-2500");
+		}
+	}
+
+	/**
+	 * setter method for rating with validation to not be less than 1 and more
+	 * than 5 if so throws exception
+	 * 
+	 * @param rating
+	 */
+
+	public void setRating(int rating) throws IllegalArgumentException {
+		if ((rating > 0) && (rating < 6)) {
+			this.rating = rating;
+		} else {
+			throw new IllegalArgumentException("Value out of range must be between 1-5");
+
+		}
+
+	}
+}
