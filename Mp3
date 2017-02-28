@@ -182,4 +182,12 @@ public class Mp3 {
 		}
 
 	}
+
+	@Override
+	public String toString() {
+		return "Mp3 [ref=" + ref + ", artist=" + artist + ", songName=" + songName + ", rating=" + rating
+				+ ", songLenght=" + songLenght + "]";
+	}
+	
+	
 }
