@@ -1,0 +1,41 @@
+package music;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+/**
+ * 
+ * @author Rafal Hejnicki
+ *
+ */
+
+public class Mp3test {
+
+	public static void main(String[] args) {
+		
+		//initialise array list to store records
+		
+		ArrayList<Mp3> mp3collection = new ArrayList<Mp3>();
+		
+		Mp3 mp3one = new Mp3(1, "Artist2", "Song1", 3, 1);
+		Mp3 mp3two = new Mp3(2, "Artist2", "Song2", 2, 2500);
+		
+		// add test data
+		
+		mp3collection.add(mp3one);
+		mp3collection.add(mp3two);
+		
+		//test print
+		
+		for (int i = 0; i < mp3collection.size(); i++) {
+			System.out.println(mp3collection.get(i).toString());
+			
+	
+		}
+		
+		
+		
+
+	}
+
+}
